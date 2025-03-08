@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="{{CurrentLang.IsoLang}}" culture="{{CurrentLang.CultureLang}}">
+<head>
+    <title>{{ResourcesTemplate.Around}} - {{CustomTitle}} - {{City}} - {{Country}}</title>
+    <meta name="description" content="{{SubtitleAround}}">
+    {{>CommonMetaTags}}
+    <link rel="canonical" href="{{UrlAround}}" />
+    <meta property="og:url" content="{{UrlAround}}" />
+    <meta property="og:title" content="{{ResourcesTemplate.Around}}" />
+    <meta property="og:image" content="{{#Photos.0}}{{UrlMedias}}/crop-300x200/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}}" />
+    <meta property="og:description" content="{{SubtitleAround}}" />
+    {{>FaviconTags}}
+    {{>CommonStylesheets}}
+</head>
+<body>
+    {{{ScriptAnalytics}}}
+    {{{GoogleTagManagerBody}}}
+    {{>Header}}
+
+    <main>
+        <!-- SECTION BANNER -->
+        <div class="padding-banner">
+            <div class="content-section">
+                <section class="section-title-BG bg-img" style="background-image: url(https://static.elloha.com/webgen/img/around.jpg)" alt="{{NamePhoto}}">
+                    <div class="opacity section-banner section">
+                        <div class="title-banner">
+                            <h3>{{CustomTitle}}</h3>
+                            <h1 class="big-title">{{ResourcesTemplate.pageMenuTitle_around}}</h1>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- SECTION AROUND -->
+        <div class="section-around around-items-w">
+            <div class="double-trait"><br></div>
+            <div class="section">
+                <div class="content-section">
+                    <div class="section-title">
+                        <h4>{{ResourcesTemplate.SurroundingArea}}</h4>
+                        <h2>{{ResourcesTemplate.AroundPartners}}</h2>
+                    </div>
+                    <div class="grid">
+                        {{#OisAssocied}}
+                        <div class="grid-item col-xs-12 col-sm-6 col-md-4" data-id-type="{{IdTypeOiAssocied}}" data-type-label="{{TypeOiAssocied}}" data-lat="{{XOiAssocied}}" data-lng="{{YOiAssocied}}">
+                            <div class="around-item-w">
+                                <div class="around-item-img-w" style="background-image: url({{#PhotoOiAssocied}}{{UrlMedias}}/crop-1200x900/{{IdMedia}}/{{FileNamePhoto}}{{/PhotoOiAssocied}});" alt="{{NamePhoto}}"></div>
+
+                                {{#DistanceOiAssocied}}
+                                <div class="around-distance">
+                                    <i class="las la-map-marker"></i> {{ResourcesTemplate.At}} {{DistanceOiAssocied}} {{ResourcesTemplate.Km}} {{ResourcesTemplate.FromOurPlace}}
+                                </div>
+                                {{/DistanceOiAssocied}}
+
+                                <div class="around-item-content-w">
+                                    <h4 class="around-title" data-name>{{TitleOiAssocied}}</h4>
+                                    <div class="text-description">{{DescriptionOiAssocied}}</div>
+                                    <div class="link-to-see see-all"><i class="las la-plus-circle"></i> {{ResourcesTemplate.ReadMore}}</div>
+                                    <div class="link-to-see see-menos hidden"><i class="las la-minus-circle"></i> {{ResourcesTemplate.ShowLess}}</div>
+                                </div>
+                                <div class="comment-item-w more-button-contain more-button-contain-around">
+                                        <div class="icon-to-see icon-all">{{ResourcesTemplate.WhyWeRecommand}}</div>
+                                        <div class="icon-to-see icon-menos hidden">{{ResourcesTemplate.WhyWeRecommand}}</div>
+                                        <div class="text-opinion d-none">{{TextOpinion}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/OisAssocied}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION MAP -->
+        <section class="section-map">
+            <div class="double-trait"><br></div>
+            <div class="section">
+                <div class="content-section">
+                    <div id="applemapkit" class="fullwidth-mapkit" data-lat="{{X}}" data-lng="{{Y}}" data-string="{{CustomTitle}}, {{AddressLine}}, {{PostalCode}}, {{City}}, {{Country}}.">
+                        <div class="infos-localisation">
+                            <div class="section-title">
+                                <h4>{{ResourcesTemplate.WhereAreWe}}</h4>
+                                <h2>{{ResourcesTemplate.DiscoverMagicalPlace}}</h2>
+                            </div>
+                            <div data-action="external-map" class="button-localisation">
+                                <div class="ourAddress">{{ResourcesTemplate.OurAddress}}</div>
+                                <div class="address-localisation">
+                                    <div>{{CustomTitle}}</div>
+                                    <div>{{AddressLine}}</div>
+                                    <div>{{PostalCode}} - {{City}} - {{Country}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="mapApple"></div>
+                    </div>
+                    <div data-action="external-map" class="more-button-contain btn-contain-map">
+                        <div class="link-localisation btn more-button">{{ResourcesTemplate.ToCome}}</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {{>Footer}}
+    {{>CommonScripts}}
+    
+</body>
+</html>

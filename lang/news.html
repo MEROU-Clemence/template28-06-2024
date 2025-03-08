@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="{{CurrentLang.IsoLang}}" culture="{{CurrentLang.CultureLang}}">
+<head>
+    <title>{{ResourcesTemplate.NewsPageTitle}} - {{CustomTitle}} - {{City}} - {{Country}}</title>
+    <meta name="description" content="{{MetaDescriptionNews}}">
+    {{>CommonMetaTags}}
+    <link rel="canonical" href="{{UrlNews}}" />
+    <meta property="og:url" content="{{UrlNews}}" />
+    <meta property="og:title" content="{{ResourcesTemplate.NewsPageTitle}}" />
+    <meta property="og:image" content="{{#Photos.0}}{{UrlMedias}}/crop-300x200/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}}" />
+    <meta property="og:description" content="{{MetaDescriptionNews}}" />
+    {{>FaviconTags}}
+    {{>CommonStylesheets}}
+</head>
+<body>
+    {{{ScriptAnalytics}}}
+    {{{GoogleTagManagerBody}}}
+    {{>Header}}
+
+    <main>
+        <!-- SECTION BANNER -->
+        <div class="padding-banner">
+            <div class="content-section">
+                <section class="section-title-BG bg-img" style="background-image: url(https://static.elloha.com/webgen/img/news.jpg)" alt="{{NamePhoto}}">
+                    <div class="opacity section-banner section">
+                        <div class="title-banner">
+                            <h3>{{CustomTitle}}</h3>
+                            <h1 class="big-title">{{ResourcesTemplate.NewsPageTitle}}</h1>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- SECTION NEWS -->
+        <section>
+            <div class="section-news section-news-in-news">
+                <div class="double-trait"><br></div>
+                <div class="section-title">
+                    <h2>{{ResourcesTemplate.NewsPageTitle}}</h2>
+                </div>
+                <div class="section content-news">
+                    <div class="content-left">
+                        {{#NewsList}}
+                        <div id="{{IdNews}}" class="list-news" data-pagination-item>
+                            {{#ListPhotoNews.0}}
+                            {{#ListPhotoNews.1}}
+                            <div class="owl-wrapper">
+                                <div class="owl-carousel owl-theme slider-page">
+                                    {{#ListPhotoNews}}
+                                    <div class="photo-page">
+                                        <img src="{{UrlMedias}}/crop-750x560/{{IdMedia}}/{{FileNamePhoto}}" alt="{{NamePhoto}}">
+                                    </div>
+                                    {{/ListPhotoNews}}
+                                </div>
+                            </div>
+                            {{/ListPhotoNews.1}}
+                            {{^ListPhotoNews.1}}
+                            {{#ListPhotoNews}}
+                            <div class="photo-page">
+                                <img src="{{UrlMedias}}/crop-750x560/{{IdMedia}}/{{FileNamePhoto}}" alt="{{NamePhoto}}">
+                            </div>
+                            {{/ListPhotoNews}}
+                            {{/ListPhotoNews.1}}
+                            {{/ListPhotoNews.0}}
+
+                            {{^ListPhotoNews.0}}
+                            <div class="photo-page">
+                                <img src="https://static.elloha.com/webgen/img/news.jpg" alt="{{NamePhoto}}">
+                            </div>
+                            {{/ListPhotoNews.0}}
+                            <div class="news-date ">
+                                <i class="las la-newspaper"></i> <span>{{ArticleCreatedOn}} {{DateNewsString}}</span>
+                            </div>
+                            <h4 class="title-news-in-news">{{TitleNews}}</h4>
+                            <div class="description">{{{TextNews}}}</div>
+                            {{#UrlYoutube}}
+                            <div class="option-youtube mt-20"><iframe src="{{UrlYoutube}}" frameborder="0" allowfullscreen></iframe></div>
+                            {{/UrlYoutube}}
+                        </div>
+                        {{/NewsList}}
+                    </div>
+                    <div class="content-right ">
+                        <div class="menu-right">
+                            <div class="sidebar-title"><h3>{{ResourcesTemplate.NewsLast}}</h3></div>
+                            {{#NewsList}}
+                            <a href="#{{IdNews}}">
+                                <div class="news-post">
+                                    <div class="post-thumb background-img bg-img" style="background-image: url({{#ListPhotoNews.0}}{{UrlMedias}}/crop-150x150/{{IdMedia}}/{{FileNamePhoto}}{{/ListPhotoNews.0}}{{^ListPhotoNews.0}}https://static.elloha.com/webgen/img/news.jpg{{/ListPhotoNews.0}}) "></div>
+                                    <div>
+                                        <h4>{{TitleNews}}</h4>
+                                        <div class="date"><i class="las la-newspaper"></i> {{DateNewsString}}</div>
+                                    </div>
+                                </div>
+                            </a>
+                            {{/NewsList}}
+                        </div>
+                        {{#HasSocialNetworks}}
+                        <div class="social-links-widget">
+                            <div class="sidebar-title"><h3>{{ResourcesTemplate.FollowUs}} !</h3></div>
+                            <div class="widget-content">
+                                <ul class="social-links">
+                                    {{#TikTok}}
+                                    <li><a href="{{TikTok}}" target="_blank"><span class="fab fa-tiktok"></span></a></li>
+                                    {{/TikTok}}
+                                    {{#Facebook}}
+                                    <li><a href="{{Facebook}}" target="_blank"><span class="lab la-facebook-f"></span></a></li>
+                                    {{/Facebook}}
+                                    {{#Twitter}}
+                                    <li><a href="{{Twitter}}" target="_blank"><span class="lab la-twitter"></span></a></li>
+                                    {{/Twitter}}
+                                    {{#Pinterest}}
+                                    <li><a href="{{Pinterest}}" target="_blank"><span class="lab la-pinterest"></span></a></li>
+                                    {{/Pinterest}}
+                                    {{#Youtube}}
+                                    <li><a href="{{Youtube}}" target="_blank"><span class="lab la-youtube"></span></a></li>
+                                    {{/Youtube}}
+                                    {{#Instagram}}
+                                    <li><a href="{{Instagram}}" target="_blank"><span class="lab la-instagram"></span></a></li>
+                                    {{/Instagram}}
+                                    {{#Vimeo}}
+                                    <li><a href="{{Vimeo}}" target="_blank"><span class="lab la-vimeo"></span></a></li>
+                                    {{/Vimeo}}
+                                    {{#Linkedin}}
+                                    <li><a href="{{Linkedin}}" target="_blank"><span class="lab la-linkedin-in"></span></a></li>
+                                    {{/Linkedin}}
+                                </ul>
+                            </div>
+                        </div>
+                        {{/HasSocialNetworks}}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {{>Footer}}
+    {{>CommonScripts}}
+    
+</body>
+</html>

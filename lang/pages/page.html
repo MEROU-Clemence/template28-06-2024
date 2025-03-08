@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="{{CurrentLang.IsoLang}}" culture="{{CurrentLang.CultureLang}}">
+<head>
+    <title>{{CurrentPage.TitlePage}} - {{CustomTitle}} - {{City}} - {{Country}}</title>
+    <meta name="description" content="{{CurrentPage.TextPageWithoutHtmlLength150}}">
+    {{>CommonMetaTags}}
+    <link rel="canonical" href="{{UrlPageTemplate}}" />
+    <meta property="og:url" content="{{UrlPageTemplate}}" />
+    <meta property="og:title" content="{{CurrentPage.TitlePage}}" />
+    <meta property="og:image" content="{{#CurrentPage.PhotosPage.0}}{{UrlMedias}}/crop-300x200/{{IdMedia}}/{{FileNamePhoto}}{{/CurrentPage.PhotosPage.0}}{{^CurrentPage.PhotosPage.0}}{{#Photos.0}}{{UrlMedias}}/crop-300x200/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}}{{/CurrentPage.PhotosPage.0}}" />
+    <meta property="og:description" content="{{CurrentPage.TextPageLength150}}" />
+    {{>FaviconTags}}
+    {{>CommonStylesheets}}
+</head>
+<body>
+    {{{ScriptAnalytics}}}
+    {{{GoogleTagManagerBody}}}
+    {{>Header}}
+
+    <main>
+        <!-- SECTION BANNER -->
+        <div class="padding-banner">
+            <div class="content-section">
+                <section class="section-title-BG bg-img" style="background-image: url({{#CurrentPage.PhotosPage.0}}{{UrlMedias}}/crop-1600x400/{{IdMedia}}/{{FileNamePhoto}}{{/CurrentPage.PhotosPage.0}}{{^CurrentPage.PhotosPage.0}}{{#Photos.0}}{{UrlMedias}}/crop-1600x400/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}}{{/CurrentPage.PhotosPage.0}});" alt="{{NamePhoto}}">
+                    <div class="opacity section-banner section">
+                        <div class="title-banner">
+                            <h3>{{CustomTitle}}</h3>
+                            <h1 class="big-title">{{CurrentPage.TitlePage}}</h1>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- SECTION PAGE -->
+        <div class="section-news section-news-in-news">
+            <div class="double-trait"><br></div>
+            <div class="section-title content-section">
+                <h2>{{CurrentPage.TitlePage}}</h2>
+            </div>
+            <div class="section content-news">
+                <div class="content-left">
+                    <div class="list-news">
+                        {{#CurrentPage.PhotosPage.1}}
+                        <div class="owl-wrapper">
+                            <div class="owl-carousel owl-theme slider-page">
+                                {{#CurrentPage.PhotosPage}}
+                                <div class="photo-page">
+                                    <img src="{{UrlMedias}}/crop-750x560/{{IdMedia}}/{{FileNamePhoto}}" alt="{{NamePhoto}}">
+                                </div>
+                                {{/CurrentPage.PhotosPage}}
+                            </div>
+                        </div>
+                        {{/CurrentPage.PhotosPage.1}}
+                        {{^CurrentPage.PhotosPage.1}}
+                        {{#CurrentPage.PhotosPage}}
+                        <div class="photo-page">
+                            <img src="{{UrlMedias}}/crop-750x560/{{IdMedia}}/{{FileNamePhoto}}" alt="{{NamePhoto}}">
+                        </div>
+                        {{/CurrentPage.PhotosPage}}
+                        {{/CurrentPage.PhotosPage.1}}
+                        <div class="description">{{{CurrentPage.TextPage}}}</div>
+                    </div>
+                </div>
+                <div class="content-right ">
+                    <div class="menu-right">
+                        <div class="sidebar-title"><h3>{{ResourcesTemplate.discover}}</h3></div>
+                        {{#Pages}}
+                        <a href="{{UrlPageTemplate}}">
+                            <div class="news-post">
+                                <div class="post-thumb background-img bg-img" style="background-image: url({{#PhotosPage.0}}{{UrlMedias}}/crop-150x150/{{IdMedia}}/{{FileNamePhoto}}{{/PhotosPage.0}}{{^PhotosPage.0}}{{#Photos.0}}{{UrlMedias}}/crop-150x150/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}}{{/PhotosPage.0}}) "></div>
+                                <h4>{{TitlePage}}</h4>
+                            </div>
+                        </a>
+                        {{/Pages}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {{>Footer}}
+    {{>CommonScripts}}
+    
+</body>
+</html>

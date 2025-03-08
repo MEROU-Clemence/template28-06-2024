@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="{{CurrentLang.IsoLang}}" culture="{{CurrentLang.CultureLang}}">
+<head>
+    <title>{{ResourcesTemplate.SpecialOffers}} - {{CustomTitle}} - {{City}} - {{Country}}</title>
+    <meta name="description" content="{{MetaDescriptionSpecialOffers}}">
+    {{>CommonMetaTags}}
+    <link rel="canonical" href="{{UrlSpecialOffers}}" />
+    <meta property="og:url" content="{{UrlSpecialOffers}}" />
+    <meta property="og:title" content="{{ResourcesTemplate.SpecialOffers}}" />
+    <meta property="og:image" content="{{#Photos.0}}{{UrlMedias}}/crop-300x200/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}}" />
+    <meta property="og:description" content="{{MetaDescriptionSpecialOffers}}" />
+    {{>FaviconTags}}
+    {{>CommonStylesheets}}
+    {{#HasBookingActivated}}{{>ScriptCalendarClick}}{{/HasBookingActivated}}
+</head>
+<body>
+    {{{ScriptAnalytics}}}
+    {{{GoogleTagManagerBody}}}
+    {{>Header}}
+
+    <main>
+        <!-- SECTION BANNER -->
+        <div class="padding-banner">
+            <div class="content-section">
+                <section class="section-title-BG bg-img" style="background-image: url({{#Photos.0}}{{UrlMedias}}/crop-1600x400/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}})" alt="{{NamePhoto}}">
+                    <div class="opacity section-banner section">
+                        <div class="title-banner">
+                            <h3>{{CustomTitle}}</h3>
+                            <h1 class="big-title">{{ResourcesTemplate.SpecialOffers}}</h1>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- SECTION OFFRES SPECIALES -->
+        {{#HasSpecialOffers}}
+        <section class="offers-specials-section">
+            <div class="content-section">
+                <div class="offers-specials-big-contain offers-specials-big-contain-in-special-offers">
+                    {{#SpecialOffers}}
+                    <div class="offer-special-contain offer-special-contain-in-offers-specials">
+                        {{#AmountPromo}}
+                        <div class="offer-promo-contain offer-promo-contain2">
+                            <div class="offer-promo btn-default">{{ResourcesTemplate.Promotion}}&nbsp;{{SignPromo}}&nbsp;{{AmountPromo}}&nbsp;{{UnitPromo}}</div>
+                        </div>
+                        {{/AmountPromo}}
+                        {{^AmountPromo}}
+                        <div class="offer-promo-contain offer-promo-contain2">
+                            <div class="offer-promo btn-default">/</div>
+                        </div>
+                        {{/AmountPromo}}
+
+                        <div class="infos-and-img-offer-special">
+                            <div class="infos-special-offer-all infos-special-offer-all-in-offers-specials">
+                                <div class="section-title ">
+                                    <h4>{{ResourcesTemplate.Promotion}}</h4>
+                                    <h2>{{ResourcesTemplate.SpecialOffers}}</h2>
+                                </div>
+
+                                <h3 class="title-special-offer">{{TitleSpecialOffer}}</h3>
+
+                                {{#DescriptionPrestaLength150}}
+                                <p class="description-special-offer">{{DescriptionPrestaLength150}}</p>
+                                {{/DescriptionPrestaLength150}}
+
+                                <div class="offer-special-infos">
+                                    <div class="offer-dates">
+                                        {{^IsEarlyBirdOrLastMinute}}
+                                        {{#DateFromSpecialOfferString}}
+                                        <div class="date-os">{{ResourcesTemplate.DateFrom}} <strong>{{DateFromSpecialOfferString}}</strong></div>
+                                        <div class="date-os">{{ResourcesTemplate.DateTo}} </div>
+                                        {{/DateFromSpecialOfferString}}
+
+                                        {{^DateFromSpecialOfferString}}
+                                        {{#DateToSpecialOfferString}}
+                                        <div class="date-os">{{ResourcesTemplate.DateUntil}} </div>
+                                        {{/DateToSpecialOfferString}}
+                                        {{/DateFromSpecialOfferString}}
+
+                                        {{#DateToSpecialOfferString}}
+                                        <div class="date-os"><strong>{{DateToSpecialOfferString}}</strong></div>
+                                        {{/DateToSpecialOfferString}}
+
+                                        <div class="date-os">{{DeadlineStringSpecialOffer}}</div>
+                                        {{/IsEarlyBirdOrLastMinute}}
+
+                                        {{#LastMinute}}
+                                        <div class="date-os"><strong>{{ResourcesTemplate.RightNow}}</strong></div>
+                                        {{/LastMinute}}
+                                        {{#EarlyBird}}
+                                        <div class="date-os"><strong>{{ResourcesTemplate.BookEarly}}</strong></div>
+                                        {{/EarlyBird}}
+                                        {{#MinStayStringSpecialOffer}}
+                                        <div>{{MinStayStringSpecialOffer}}</div>
+                                        {{/MinStayStringSpecialOffer}}
+                                    </div>
+
+                                    {{#HasBookingActivated}}
+                                    {{^IsRestaurant}}
+                                    <div class="special-offer-related">
+                                        <b>{{ResourcesTemplate.Valid}} <span class="lowercase"><b>{{ResourcesTemplate.For}}</b></span> : &nbsp;</b>
+                                        {{#PrestasSpecialOfferList.0}}{{TitrePresta}}<span class="separator"> | </span>{{/PrestasSpecialOfferList.0}}
+                                        {{#PrestasSpecialOfferList.1}}{{TitrePresta}}{{/PrestasSpecialOfferList.1}}
+                                        {{#PrestasSpecialOfferList.2}}<span class="separator">...</span>{{/PrestasSpecialOfferList.2}}
+                                    </div>
+                                    {{/IsRestaurant}}
+                                    {{/HasBookingActivated}}
+                                </div>
+
+                                <div class="more-button-contain-contain-specials-global btn-special-offers-1">
+                                    <div class="more-button-contain btn-contain-map2 more-button-contain-offers-specials-global">
+                                        <a href="{{{UrlBECustom}}}/Search/Index/{{IdPubBe}}?idoi={{IdOi}}&idModelOffer={{IdSpecialOffer}}&culture={{CurrentLang.CultureLang}}&searchFirstAvailableDates=1&template={{UrlTemplateBE}}" class="btn btn-resa">
+                                            {{ResourcesTemplate.pageMenuTitle_online-reservation}}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="special-offer-img-bloc">
+                                {{#FirstPhotoSpecialOffer}}
+                                <img class="bg-img img-offer-special img-offer-special-2" src="{{UrlMedias}}/crop-450x350/{{IdMedia}}/{{FileNamePhoto}}" alt="{{NamePhoto}}">
+                                {{/FirstPhotoSpecialOffer}}
+                                {{^FirstPhotoSpecialOffer}}https://static.elloha.com/webgen/img/special-offer.png{{/FirstPhotoSpecialOffer}}
+                                <div class="margin-more-btn btn-contain-map2 more-button-contain more-button-contain-offer-special btn-special-offers-2">
+                                    <a href="{{{UrlBECustom}}}/Search/Index/{{IdPubBe}}?idoi={{IdOi}}&idModelOffer={{IdSpecialOffer}}&culture={{CurrentLang.CultureLang}}&searchFirstAvailableDates=1&template={{UrlTemplateBE}}" class="btn btn-resa">
+                                        {{ResourcesTemplate.pageMenuTitle_online-reservation}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/SpecialOffers}}
+                </div>
+            </div>
+        </section>
+        {{/HasSpecialOffers}}
+    </main>
+
+    {{>Footer}}
+    {{>CommonScripts}}
+    
+</body>
+
+</html>
