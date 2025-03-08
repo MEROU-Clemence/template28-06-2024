@@ -1,3 +1,19 @@
+/*Variables*/
+:root {
+    --color-link: #000000;
+    --color-btn: #F3ED5D;
+    --color-btn-txt: #000000;
+    --color-text: #000000;
+    --color-text-white: #FFFFFF;
+    --color-title: #4B296B;
+    --color-bg-1: #FDFCF8;
+    --color-bg-2: #F2CE80;
+    --color-bg-3: #F0C3BC;
+    --color-red: #F19862;
+    --font-title: Bricolage Grotesque;
+    --font-text: Bricolage Grotesque;
+}
+
 /****** FOR ALL ******/
 * {
     box-sizing: border-box;
